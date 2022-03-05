@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lavadora>
+    <cesto>
+        <prenda>
+            <tejido>algodon</tejido>
+            <color>blanco</color>
+        </prenda>
+        <prenda>
+            <tejido>polyester</tejido>
+            <color>color</color>
+        </prenda>
+        <prenda>
+            <tejido>algodon</tejido>
+            <color>color</color>
+        </prenda>
+    </cesto>
+    <fecha>20-oct-2018</fecha>
+    <hora>21:30</hora>
+</lavadora>

@@ -3,25 +3,26 @@ package beans;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class Concierto {
+public class Lavadora {
 
 	private String fecha;
 	private String hora;
 	
-	private List<Participante> participantes;
+	private List<Prenda> prendas;
 
-	public Concierto() {
+	public Lavadora() {
 		super();
 	}
 
-	public Concierto(String fecha, String hora, List<Participante> participantes) {
+	public Lavadora(String fecha, String hora, List<Prenda> prendas) {
 		super();
 		this.fecha = fecha;
 		this.hora = hora;
-		this.participantes = participantes;
+		this.prendas = prendas;
 	}
 
 	public String getFecha() {
@@ -40,19 +41,21 @@ public class Concierto {
 		this.hora = hora;
 	}
 
-	public List<Participante> getParticipantes() {
-		return participantes;
+	@XmlElementWrapper(name = "cesto")
+	public List<Prenda> getCarga() {
+		return prendas;
 	}
 
-	@XmlElement(name="participante")
-	public void setParticipantes(List<Participante> participantes) {
-		this.participantes = participantes;
+	@XmlElement(name="prenda")
+	public void setCarga(List<Prenda> prendas) {
+		this.prendas = prendas;
 	}
 
 	@Override
 	public String toString() {
-		return "Concierto [fecha=" + fecha + ", hora=" + hora + ", participantes=" + participantes + "]";
+		return "Lavadora [fecha=" + fecha + ", hora=" + hora + ", carga=" + prendas + "]";
 	}
-	
-	
+
+
+
 }

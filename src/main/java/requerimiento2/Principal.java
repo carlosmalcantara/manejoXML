@@ -7,8 +7,8 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
-import beans.Concierto;
-import beans.Participante;
+import beans.Lavadora;
+import beans.Prenda;
 
 public class Principal {
 
@@ -18,37 +18,37 @@ public class Principal {
 
 	public static void CrearXml() {
 
-		List<Participante> participantes = new ArrayList<Participante>();
+		List<Prenda> cesto = new ArrayList<Prenda>();
 
-		Participante participante = new Participante();
-		participante.setEntrada("21:30");
-		participante.setGrupo("Las ardillas de Dakota");
+		Prenda prenda = new Prenda();
+		prenda.setTejido("algodon");
+		prenda.setColor("blanco");
 
-		participantes.add(participante);
+		cesto.add(prenda);
 
-		participante = new Participante();
-		participante.setEntrada("22:15");
-		participante.setGrupo("Fito y Fitipaldis");
+		prenda = new Prenda();
+		prenda.setTejido("polyester");
+		prenda.setColor("color");
 
-		participantes.add(participante);
+		cesto.add(prenda);
 
-		participante = new Participante();
-		participante.setEntrada("23:00");
-		participante.setGrupo("Coldplay");
+		prenda = new Prenda();
+		prenda.setTejido("algodon");
+		prenda.setColor("color");
 
-		participantes.add(participante);
+		cesto.add(prenda);
 
-		Concierto concierto = new Concierto();
-		concierto.setFecha("20-oct-2018");
-		concierto.setHora("21:30");
-		concierto.setParticipantes(participantes);
+		Lavadora lavado = new Lavadora();
+		lavado.setFecha("20-oct-2018");
+		lavado.setHora("21:30");
+		lavado.setCarga(cesto);
 
 		try {
-			JAXBContext ctx = JAXBContext.newInstance(Concierto.class);
+			JAXBContext ctx = JAXBContext.newInstance(Lavadora.class);
 			Marshaller ms = ctx.createMarshaller();
 			ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-			ms.marshal(concierto, new File("concierto.xml"));
+			ms.marshal(lavado, new File("lavadora.xml"));
 			System.out.println("Archivo XML creado. Yipi ka yei.");
 			
 		} catch (JAXBException e) {
